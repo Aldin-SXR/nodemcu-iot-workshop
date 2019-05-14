@@ -23,4 +23,5 @@ Moreover, PlatformIO is a fully-featured IDE, offering numerous other functional
 
 _Installation_: 
     1. After installing VSCode, navigate to the `Extensions` tab on the left side of the IDE (or use the shortcut `Ctrl+Shift+X`), and search for "PlatformIO"
-    ![Find "PlatformIO" extension](./platformio-install.png)
+    
+![Find "PlatformIO" extension](./platformio-install.png)
