@@ -2,9 +2,9 @@
 
 ## NodeMCU & ESP8266
 
-__NodeMCU__ is a popular and inexpensive development board, based on the widely explored __ESP8266__ microcontroller unit by _Espressif_. It offers WiFi networking capabilities (enabling it to be used as an access point, station or a Web server), Arduino-like hardware I/O as well as a myriad other stand-alone features, allowing it to form an excellent basis for an IoT platform.
+__NodeMCU__ is a popular and inexpensive development board, based on the widely explored __ESP8266__ microcontroller unit by _Espressif_. It offers WiFi networking capabilities (enabling it to be used as an access point, station or a Web server), Arduino-like hardware I/O,  as well as a myriad other stand-alone features, allowing it to form an excellent basis for an IoT platform.
   
-As an open-source, full development board centered around ESP8266, NodeMCU includes an additional USD to Serial UART adapter, a micro-USB programming port and a 3.3V regulator, making it easy to connect to your computer, install the necessary drivers and begin developement.
+As an open-source, full development board centered around ESP8266, NodeMCU includes an additional USB to Serial UART adapter, a micro-USB programming port and a 3.3V regulator, making it easy to connect to your computer, install the necessary drivers and begin developement.
 
 Read more about NodeMCU and ESP8266 on the [following link](http://42bots.com/esp8266/nodemcu-esp8266-iot-development-board-overview/).
   
@@ -15,9 +15,11 @@ Follow the steps outlined in this section to install the software necessary for 
 ### VSCode
 __Visual Studio Code__ is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
 
-It comes with support for a number of programming languages (C/C++ included), and is easy to set up and customize with extensions. In this workshop, we will use VSCode instead of the "standard" choice of Arduino IDE, as it offers a great extension [PlatformIO](https://platformio.org/) (which will handle all our NodeMCU library setup and installation needs).
+It comes with support for a number of programming languages (C/C++ included), and is easy to set up and customize with extensions. In this workshop, we will use VSCode instead of the "standard" choice of Arduino IDE, as it offers a fantastic developemnt extension [PlatformIO](https://platformio.org/) (which will handle all our NodeMCU library setup and installation needs).
 
 You can install VSCode by downloading the appropriate version for your system from [the official link](https://code.visualstudio.com/).
+
+![VSCode screen](./img/vscode.png)
 
 ### PlatformIO
 
@@ -27,7 +29,7 @@ Read more about PlatformIO and all it has to offer in their [official home page]
 
 #### Why PlatformIO?
 
-It is possible to write code for ESP8266 (NodeMCU) in a standard Arduino IDE. However, using PlatformIO saves us the hassle of having to manually install different libraries and drivers required for the board, allowing us to be set up as soon as possible. Moreover, PlatformIO makes it easy to install and integrate new libraries as we further work on our project.
+It is possible to write code for ESP8266 (NodeMCU) in a standard Arduino IDE. However, using PlatformIO saves us the hassle of having to manually install different libraries and drivers required for the board, allowing us to be set up as soon as possible. Additionally, PlatformIO makes it easy to install and integrate new libraries as we further work on our project.
 
 Moreover, PlatformIO is a fully-featured IDE, offering numerous other functionalities lacking in Arduino IDE, such as code completion and linting, debugging, testing and much more.
 
@@ -41,16 +43,15 @@ Moreover, PlatformIO is a fully-featured IDE, offering numerous other functional
 
 ![Wait for the installation to finish](./img/platformio-install-2.png)
 
-4. Once the IDE restarts, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
+4. Once the IDE is restarted, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
 
 ![PlatformIO Home](./img/platformio-home.png)
 
 #### Troubleshouting & Caveats
 
-If you are using a Windows operating system, completing the aforementioned installation steps should be sufficient for your setup. However, if you run a GNU/Linux operating system, due to their nature (required permissions), an additional action is needed:
+If you are using a Windows operating system, completing the aforementioned installation steps should be sufficient for your setup. However, if you run a GNU/Linux operating system, due to its nature (required permissions), an additional action is needed:
 
-- Add the current user to the `dialout` group (group which controls tty - serial ports) by running:
-`sudo usermod -aG dialout $USER`
+- Add the current user to the `dialout` group (group which controls tty - serial ports) by running: `sudo usermod -aG dialout $USER`
 - Restart the system, or log out and then log back in
     - _note_: you can verify that your user has been successfully added by running `getent group dialout`
 
