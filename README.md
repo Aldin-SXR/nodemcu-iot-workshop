@@ -4,7 +4,7 @@
 
 __NodeMCU__ is a popular and inexpensive development board, based on the widely explored __ESP8266__ microcontroller unit by _Espressif_. It offers WiFi networking capabilities (enabling it to be used as an access point, station or a Web server), Arduino-like hardware I/O as well as a myriad other stand-alone features, allowing it to form an excellent basis for an IoT platform.
   
-As an open-source, full development board centered around ESP8266, NodeMCU includes an additional USD to Serial UART adapter, a micro-USB programming port and a 3.3V regulator, making it easy to connect to your computer, install the necessary drivers and begin developement.[^1]
+As an open-source, full development board centered around ESP8266, NodeMCU includes an additional USD to Serial UART adapter, a micro-USB programming port and a 3.3V regulator, making it easy to connect to your computer, install the necessary drivers and begin developement.
 
 Read more about NodeMCU and ESP8266 on the [http://42bots.com/esp8266/nodemcu-esp8266-iot-development-board-overview/](following link).
   
@@ -41,5 +41,3 @@ Moreover, PlatformIO is a fully-featured IDE, offering numerous other functional
 
     4. Once the IDE restarts, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
 
-
-[^1]: http://42bots.com/esp8266/nodemcu-esp8266-iot-development-board-overview/
