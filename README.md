@@ -21,7 +21,14 @@ It is possible to write code for ESP8266 (NodeMCU) in a standard Arduino IDE. Ho
 
 Moreover, PlatformIO is a fully-featured IDE, offering numerous other functionalities lacking in Arduino IDE, such as code completion and linting, debugging, testing and much more.
 
-_Installation_: 
-    1. After installing VSCode, navigate to the `Extensions` tab on the left side of the IDE (or use the shortcut `Ctrl+Shift+X`), and search for "PlatformIO"
+- _Installation_: 
+    1. After installing VSCode, navigate to the `Extensions` tab on the left side of the IDE (or use the shortcut `Ctrl+Shift+X`), and search for "PlatformIO".
     
-![Find "PlatformIO" extension](./platformio-install.png)
+    ![Find "PlatformIO" extension](./img/platformio-install.png)
+
+    2. Once you press "Install", wait for the process to be completed. Soon afterwards, the bottom window `Output` will open, informing you that "PlatformIO Core" is being installed. __Do not__ close this window and wait for the setup to finish 
+    3. After the core is installed, you will be prompted to `Reload` the window. 
+
+    ![Wait for the installation to finish](./img/platformio-install-2.png)
+
+    4. Once the IDE restarts, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
