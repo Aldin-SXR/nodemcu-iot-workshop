@@ -27,7 +27,7 @@ Read more about PlatformIO and all it has to offer in their [official home page]
 
 #### Why PlatformIO?
 
-It is possible to write code for ESP8266 (NodeMCU) in a standard Arduino IDE. However, using PlatformIO saves us the hassle of having to manually install different libraries and drivers required for the board, allowing us to be set up as soon as possible. 
+It is possible to write code for ESP8266 (NodeMCU) in a standard Arduino IDE. However, using PlatformIO saves us the hassle of having to manually install different libraries and drivers required for the board, allowing us to be set up as soon as possible. Moreover, PlatformIO makes it easy to install and integrate new libraries as we further work on our project.
 
 Moreover, PlatformIO is a fully-featured IDE, offering numerous other functionalities lacking in Arduino IDE, such as code completion and linting, debugging, testing and much more.
 
@@ -42,4 +42,18 @@ Moreover, PlatformIO is a fully-featured IDE, offering numerous other functional
 ![Wait for the installation to finish](./img/platformio-install-2.png)
 
 4. Once the IDE restarts, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
+
+![PlatformIO Home](./img/platformio-home.png)
+
+#### Troubleshouting & Caveats
+
+If you are using a Windows operating system, completing the aforementioned installation steps should be sufficient for your setup. However, if you run a GNU/Linux operating system, due to their nature (required permissions), an additional action is needed:
+
+- Add the current user to the `dialout` group (group which controls tty - serial ports) by running:
+`sudo usermod -aG dialout $USER`
+- Restart the system, or log out and then log back in
+    - _note_: you can verify that your user has been successfully added by running `getent group dialout`
+
+Folowing this step, you should be able to use the development board without issues.
+
 
