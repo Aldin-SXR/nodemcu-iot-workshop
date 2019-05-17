@@ -63,8 +63,8 @@ With VSCode and PlatformIO installed and set up, you are ready to create your fi
 
 ### Creating a Project
 
-1. Start Visual Studio Code, open the `PlatformIO` tab, and navigate to the `Home` page
-2. On the PlatformIO Home, click on the `+ New Project`, and set the specifications for your new projects (name, board, framework, etc.)
+1. Start Visual Studio Code, open the `PlatformIO` tab, and navigate to the `Home` page.
+2. On the PlatformIO Home, click on the `+ New Project`, and set the specifications for your new projects (name, board, framework, etc.).
 
 ![New PlatformIO project](./img/new-project/platformio-new.png)
 
@@ -83,19 +83,19 @@ monitor_speed = 115200
 ### Project Structure
 
 PlatformIO will have created several folders and files in the project hierarchy, which should look something like this:
- - *note*: if you are not seeing this hierarchy, it is possible your side bar is hidden. Try using the shortcut `Ctrl+B` to display it.
+ - *note*: If you are not seeing this hierarchy, it is possible your side bar is hidden. Try using the shortcut `Ctrl+B` to display it.
 
 ![Project hierarchy](./img/new-project/platformio-hierarchy.png)
 
-- `.pionenvs` and `.piolibdeps` will contain compiled project files, and other binary data. **Do not** directly modify any files here.
+  `.pionenvs` and `.piolibdeps` will contain compiled project files, and other binary data. **Do not** directly modify any files here.
 
-- `.vscode` is a VSCode environment folder, which contains IDE-related settings and properties. There is no need to modify it.
+  `.vscode` is a VSCode environment folder, which contains IDE-related settings and properties. There is no need to modify it.
 
-- `include` contains the project header files (`.h` extension), for our custom C/C++ files. 
+  `include` contains the project header files (`.h` extension), for our custom C/C++ files. 
 
-- `lib` contains project-specific (private) libraries. This folder is intended for libraries we want to use **only** with the current project. PlatformIO also offers a global library installer from its sidebar, which makes any installed library available to all future projects (and saves it in a global PlatformIO directory, not `lib`)
+  `lib` contains project-specific (private) libraries. This folder is intended for libraries we want to use **only** with the current project. PlatformIO also offers a global library installer from its sidebar, which makes any installed library available to all future projects (and saves it in a global PlatformIO directory, not `lib`)
 
-- `src` is core the part of your project, where the `main.cpp` file is located. This file is the project's **entry point**, from which the project will be run when compiled.
+  `src` is core the part of your project, where the `main.cpp` file is located. This file is the project's **entry point**, from which the project will be run when compiled.
 
   - If you have previous experience with Arduino, you will notice that the overall base structure is the same, with there being a `setup()` and a `loop()` function. The one additional thing is the `<Arduino.h>` header at the top which now has to be included, as we are dealing with `.cpp` files (not `.ino`), and we need to tell the C++ compiler to utilize Arduino-specific functionalities.
 
@@ -111,11 +111,12 @@ void loop() {
 }
 ```
 
-- `test` directory serves for housing unit and project tests.
+  `test` directory serves for housing unit and project tests.
 
-- `.gitignore` and `.travis.yml` serve as Git omission and project CI (continuous integration) files, respectively. They are, for the time being, irrelevant to the project itself.
-- `platformio.ini` contains the project configuration file. Various options, such as the platform, board, library directories, baud rate, upload port, etc. can be set and configured from here. 
-  - refer to the [platformio.ini page](https://docs.platformio.org/en/latest/projectconf.html) for additional details
+  `.gitignore` and `.travis.yml` serve as Git omission and project CI (continuous integration) files, respectively. They are, for the time being, irrelevant to the project itself.
+
+  `platformio.ini` contains the project configuration file. Various options, such as the platform, board, library directories, baud rate, upload port, etc. can be set and configured from here. 
+  - Refer to the [platformio.ini page](https://docs.platformio.org/en/latest/projectconf.html) for additional details.
 
 ```ini
 [env:nodemcu]
