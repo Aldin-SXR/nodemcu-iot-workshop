@@ -19,7 +19,7 @@ It comes with support for a number of programming languages (C/C++ included), an
 
 You can install VSCode by downloading the appropriate version for your system from [the official link](https://code.visualstudio.com/).
 
-![VSCode screen](./img/vscode.png)
+![VSCode screen](./img/setup/vscode.png)
 
 ### PlatformIO
 
@@ -36,16 +36,16 @@ Moreover, PlatformIO is a fully-featured IDE, offering numerous other functional
 #### Installation
 1. After installing VSCode, navigate to the `Extensions` tab on the left side of the IDE (or use the shortcut `Ctrl+Shift+X`), and search for "PlatformIO".
 
-![Find "PlatformIO" extension](./img/platformio-install.png)
+![Find "PlatformIO" extension](./img/setup/platformio-install.png)
 
 2. Once you press `Install`, wait for the process to be completed. Soon afterwards, the bottom window `Output` will open, informing you that "PlatformIO Core" is being installed. __Do not__ close this window and wait for the setup to finish. 
 3. After the core is installed, you will be prompted to `Reload` the window. 
 
-![Wait for the installation to finish](./img/platformio-install-2.png)
+![Wait for the installation to finish](./img/setup/platformio-install-2.png)
 
 4. Once the IDE is restarted, you will be greeted by the PlatformIO home screen. You are now ready to create your first project.
 
-![PlatformIO Home](./img/platformio-home.png)
+![PlatformIO Home](./img/setup/platformio-home.png)
 
 #### Troubleshouting & Caveats
 
@@ -57,4 +57,72 @@ If you are using a Windows operating system, completing the aforementioned insta
 
 Folowing this step, you should be able to use the development board without issues.
 
+## Creating a New Project with PlatformIO
 
+With VSCode and PlatformIO installed and set up, you are ready to create your first IoT project.
+
+### Creating a Project
+
+1. Start Visual Studio Code, open the `PlatformIO` tab, and navigate to the `Home` page
+2. On the PlatformIO Home, click on the `+ New Project`, and set the specifications for your new projects (name, board, framework, etc.)
+
+![New PlatformIO project](./img/new-project/platformio-new.png)
+
+1. Fill in the desired project name, select **NodeMCU** as the development board (depending on your NodeMCU module, select either version 0.9 or 1.0; you can check that on the back of your module), and select **Arduino** as the framework. You can also specify a custom project location, or use the default one (depending on your OS).
+2. Click `Finish` and wait for PlatformIO to download the ESP8266 SDK and other required libraries, and create your project structure. If this is your first time creating a project, it will take some time to download all necessary files. Subsequent project creations should complete much faster.
+
+![Creating a project...](./img/new-project/platformio-creating.png)
+
+5. After all necessary data is downloaded, your project will be set up and ready to use. One last thing you should do is navigate to the `platformio.ini` file in the project hierarchy, and set the parameter `monitor_speed` to **115200**. This is the preferred baud rate for NodeMCU.
+
+```ini
+; add this line to the bottom of platformio.ini
+monitor_speed = 115200
+```
+
+### Project Structure
+
+PlatformIO will have created several folders and files in the project hierarchy, which should look something like this:
+ - *note*: if you are not seeing this hierarchy, it is possible your side bar is hidden. Try using the shortcut `Ctrl+B` to display it.
+
+![Project hierarchy](./img/new-project/platformio-hierarchy.png)
+
+- `.pionenvs` and `.piolibdeps` will contain compiled project files, and other binary data. **Do not** directly modify any files here.
+
+- `.vscode` is a VSCode environment folder, which contains IDE-related settings and properties. There is no need to modify it.
+
+- `include` contains the project header files (`.h` extension), for our custom C/C++ files. 
+
+- `lib` contains project-specific (private) libraries. This folder is intended for libraries we want to use **only** with the current project. PlatformIO also offers a global library installer from its sidebar, which makes any installed library available to all future projects (and saves it in a global PlatformIO directory, not `lib`)
+
+- `src` is core the part of your project, where the `main.cpp` file is located. This file is the project's **entry point**, from which the project will be run when compiled.
+
+  - If you have previous experience with Arduino, you will notice that the overall base structure is the same, with there being a `setup()` and a `loop()` function. The one additional thing is the `<Arduino.h>` header at the top which now has to be included, as we are dealing with `.cpp` files (not `.ino`), and we need to tell the C++ compiler to utilize Arduino-specific functionalities.
+
+```cpp
+#include <Arduino.h>
+
+void setup() {
+  // put your setup code here, to run once:
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
+```
+
+- `test` directory serves for housing unit and project tests.
+
+- `.gitignore` and `.travis.yml` serve as Git omission and project CI (continuous integration) files, respectively. They are, for the time being, irrelevant to the project itself.
+- `platformio.ini` contains the project configuration file. Various options, such as the platform, board, library directories, baud rate, upload port, etc. can be set and configured from here. 
+  - refer to the [platformio.ini page](https://docs.platformio.org/en/latest/projectconf.html) for additional details
+
+```ini
+[env:nodemcu]
+platform = espressif8266
+board = nodemcu
+framework = arduino
+monitor_speed = 115200
+```
+
+We have provded a brief overview of all key folders and files in the project structure. If you want additional details, many of the generated folders contain a `README` file, or file comments, which can supply you with additional information about the purpose of each segment.
